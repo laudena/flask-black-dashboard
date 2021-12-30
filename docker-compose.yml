@@ -5,9 +5,15 @@ services:
     restart: always
     env_file: .env
     build: .
+    ports:
+      - "5005:5005"
+    volumes:
+      - "/dev/gpiomem:/dev/gpiomem"
+      - "/dev/mem:/dev/mem"
     networks:
       - db_network
       - web_network
+    privileged: true
   nginx:
     container_name: nginx
     restart: always
@@ -16,6 +22,7 @@ services:
       - "85:85"
     volumes:
       - ./nginx:/etc/nginx/conf.d
+      - /dev/mem:/dev/mem
     networks:
       - web_network
     depends_on: 

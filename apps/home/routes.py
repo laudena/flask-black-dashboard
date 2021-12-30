@@ -8,6 +8,8 @@ from flask import render_template, request
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
+from app.backend.clock_model import set_seconds_timeout, set_time_zone, stop_clock, start_clock, set_time, \
+    reset_time_from_web, calibrate
 
 @blueprint.route('/index')
 @login_required
@@ -35,6 +37,18 @@ def route_template(template):
 
     except:
         return render_template('home/page-500.html'), 500
+
+
+@blueprint.route('/set_timezone', methods=['GET'])
+def set_timezone():
+    if 'timezone' in request.args:
+        set_time_zone(request.args['timezone'])
+
+
+@blueprint.route('/calibrate_to_time', methods=['GET'])
+def calibrate_to_time():
+    if 'time' in request.args:
+        calibrate(request.args['time'])
 
 
 # Helper - Extract current page name from request

@@ -7,11 +7,13 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from importlib import import_module
-
+from app.backend.clock_model import start_clock
 
 db = SQLAlchemy()
 login_manager = LoginManager()
 
+clock_hand_seconds = ''
+refresh_timeout = 0.5
 
 def register_extensions(app):
     db.init_app(app)
@@ -23,6 +25,9 @@ def register_blueprints(app):
         module = import_module('apps.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
 
+def start_backend(app):
+    clock_outer_thread = threading.Thread(target=start_clock)
+    clock_outer_thread.start()
 
 def configure_database(app):
 
@@ -37,8 +42,10 @@ def configure_database(app):
 
 def create_app(config):
     app = Flask(__name__)
+    app.refresh_timeout = 0.2
     app.config.from_object(config)
     register_extensions(app)
     register_blueprints(app)
+    start_backend(app)
     configure_database(app)
     return app
