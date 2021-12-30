@@ -1,19 +1,18 @@
 # Mechanical Clock with a web interface 
 I used Flask Dashboard Black as a backbone to run cog wheels of a mechanical clock, using Raspberry-Pi and a stepper motor. 
 
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/Clock.jpeg" width="300">
-
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/Clock.jpeg" width="300">
 
 ---
 
 Clock Mechanism
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/ClockMechanism.jpeg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/ClockMechanism.jpeg" width="300">
 
 Clock Mechanism
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/ClockMechanism.jpeg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/ClockMechanism.jpeg" width="300">
 
 The working setup video [Is here][https://youtu.be/lBk1q_Q5vkI]
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/setup.jpeg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/setup.jpeg" width="300">
 To set the right time, use the clock web interface and enter the time shown by the clock (current clock's hands position). It will then quickly move the hands to the right position. 
 
 
