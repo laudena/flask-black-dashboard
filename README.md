@@ -1,5 +1,5 @@
 # A Mechanical Clock with a Web Interface 
-I used Flask Dashboard Black as a backbone to run cog wheels of a mechanical clock, using Raspberry-Pi and a stepper motor. 
+I used this web app generator as a backbone to run cog wheels of a mechanical clock, using a Raspberry-Pi and a stepper motor. 
 
 <img src="https://github.com/laudena/flask-black-dashboard/blob/master/images/Clock.jpg" width="300">
 <img src="https://github.com/laudena/flask-black-dashboard/blob/master/images/ClockMechanism.jpg" width="300">
@@ -10,6 +10,8 @@ I used Flask Dashboard Black as a backbone to run cog wheels of a mechanical clo
 The working setup Video [Is here](https://youtu.be/lBk1q_Q5vkI)
 
 To set the right time, use the clock web interface and enter the time shown by the clock (current clock's hands position). It will then quickly move the hands to the right position. 
+
+See the setup steps at the end of this file.
 
 ---
 
@@ -318,9 +320,10 @@ Visit `http://localhost:8001` in your browser. The app should be up & running.
 
 ---
 **[Flask Dashboard Black](https://appseed.us/admin-dashboards/flask-dashboard-black)** - Provided by **AppSeed** [Web App Generator](https://appseed.us/app-generator).
+---
 
 
-# Raspberrypi Installation ( Do inside RPi )
+# Mecahnical Clock Raspberry Pi installation ( To do inside the Pi )
 To simplify the process (which is another way of saying "let's quickly hack this solution"), I would build the image inside the Rapsberry Pi, where the environment is right and the libraries are available
 ## Docker
 ```bash
@@ -330,14 +333,14 @@ sudo usermod -aG docker pi
 docker version
 docker info
 ```
-##Docker-compose
+## Docker-compose
 ```bash
 sudo apt-get install -y libffi-dev libssl-dev
 sudo apt-get install -y python3 python3-pip
 sudo apt-get remove python-configparser
 sudo pip3 -v install docker-compose
 ```
-##Craeting the image
+## Craeting the image
 ```
 docker create --privileged --device /dev/gpiomem -v /sys:/sys --restart unless-stopped -p 5005:5005 app_appseed-app:latest
 ```
@@ -345,23 +348,23 @@ docker create --privileged --device /dev/gpiomem -v /sys:/sys --restart unless-s
 
 TIPS:
 
-###Deploy a desktop version of pi, and config it using a screen and a keyboard
+### Deploy a desktop version of pi, and config it using a screen and a keyboard
 ```apt-get update
 apt-get upgrade
 ```
-###Copy to remote Pi
+### Copy to remote Pi
 ```tar -cvf app.tar .
 scp app.tar pi@raspberryclock:/home/pi/app
 ssh pi@raspberryclock
 cd /home/pi
 tar -xvf app.tar
 ```
-###docker-compose inside the RPi (to fit the ARM-linux)
+### docker-compose inside the RPi (to fit the ARM-linux)
 ```cd app
 docker-compose build
 ```
-###setup docker and docker compose
+### setup docker and docker compose
 see above
 
-###Raspi-config 
+### raspi-config 
 enable SPi, ssh, GPIO, etc...
