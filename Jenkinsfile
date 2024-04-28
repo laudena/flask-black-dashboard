@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Create container') {
             steps {
-                sh('docker create --name raspberry-clock --privileged --device /dev/gpiochip4 -v /dev:/dev -v /sys:/sys --restart unless-stopped -p 5005:5005 flask_appseed-app:latest')
+                sh('docker create --name raspberry-clock --privileged --device /dev/gpiochip4 -v /dev:/dev -v /sys:/sys --restart unless-stopped -p 5005:5005 raspberry-clock_appseed-app:latest')
             }
         }
         stage('Start clock') {
