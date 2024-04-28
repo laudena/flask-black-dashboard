@@ -9,6 +9,7 @@ pipeline {
         }
         stage('Build image') {
             steps {
+                sh('cd flask-black-dashboard')
                 sh('docker-compose build --no-cache')
             }
         }
