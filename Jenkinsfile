@@ -25,8 +25,13 @@ pipeline {
         stage('Log clock activity') {
             steps {
                 sh('sleep 4s')
-                sh('docker logs --tail 80  raspberry-clock')
+                sh('docker logs --tail 100  raspberry-clock')
             }
+        }
+    }
+    post {
+        cleanup {
+            cleanWs()
         }
     }
 }
