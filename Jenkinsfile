@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Log clock activity') {
             steps {
-                sh('sleep(5)')
+                sh('sleep 4s')
                 sh('docker logs --tail 80  raspberry-clock')
             }
         }
