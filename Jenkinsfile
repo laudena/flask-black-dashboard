@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build image') {
             steps {
-                sh('docker-compose build')
+                sh('docker-compose build --no-cache')
             }
         }
         stage('Create container') {
