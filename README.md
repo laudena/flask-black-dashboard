@@ -79,18 +79,19 @@ $ cd flask-black-dashboard
 > Install modules via `VENV`  
 
 ```bash
-$ virtualenv env
-$ source env/bin/activate
-$ pip3 install -r requirements.txt
+virtualenv env
+source env/bin/activate
+pip3 install -r requirements.txt
 ```
 
 <br />
 
-> Set Up Flask Environment
+> Set Up Flask Environment, adn mock the gpio access
 
 ```bash
-$ export FLASK_APP=run.py
-$ export FLASK_ENV=development
+export FLASK_APP=run.py
+export FLASK_ENV=development
+export GPIOZERO_PIN_FACTORY=mock
 ```
 
 <br />
@@ -98,9 +99,9 @@ $ export FLASK_ENV=development
 > Start the app
 
 ```bash
-$ flask run
-// OR
-$ flask run --cert=adhoc # For HTTPS server
+flask run
+#// OR
+#$ flask run --cert=adhoc # For HTTPS server
 ```
 
 At this point, the app runs at `http://127.0.0.1:5000/`. 

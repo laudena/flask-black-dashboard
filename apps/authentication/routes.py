@@ -18,7 +18,7 @@ from apps.authentication.forms import LoginForm, CreateAccountForm
 from apps.authentication.models import Users
 
 from apps.authentication.util import verify_pass
-
+from apps.backend import clock_model
 
 @blueprint.route('/')
 def route_default():
@@ -104,6 +104,44 @@ def register():
     else:
         return render_template('accounts/register.html', form=create_account_form)
 
+
+@blueprint.route('/set_timezone', methods=['GET'])
+def set_timezone():
+    if 'timezone' in request.args:
+        clock_model.set_time_zone(request.args['timezone'])
+    return redirect(url_for('base_blueprint.route_default'))
+
+
+@blueprint.route('/set_refresh_timeout', methods=['GET'])
+def set_refresh_timeout():
+    if 'timeout' in request.args:
+        clock_model.set_seconds_timeout(request.args['timeout'])
+    return redirect(url_for('base_blueprint.route_default'))
+
+
+@blueprint.route('/start_clock_cmd', methods=['GET'])
+def start_clock_cmd():
+    clock_model.start_clock()
+    return redirect("/configure")
+
+
+@blueprint.route('/stop_clock_cmd', methods=['GET'])
+def stop_clock_cmd():
+    clock_model.stop_clock()
+    return redirect("/configure")
+
+
+@blueprint.route('/set_time_cmd', methods=['GET'])
+def set_time_cmd():
+    if 'time' in request.args:
+        clock_model.set_time(request.args['time'])
+    return redirect("/configure")
+
+
+@blueprint.route('/reset_time_cmd', methods=['GET'])
+def reset_time_cmd():
+    clock_model.reset_time_from_web()
+    return redirect("/configure")
 
 @blueprint.route('/logout')
 def logout():
