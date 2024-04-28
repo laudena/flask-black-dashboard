@@ -151,7 +151,7 @@ class ClockHand:
         time.tzset()
 
     def shortest_path(self, current_location, required_location, loop_size):
-        print('shortest_path:' + str(current_location) +"," + str(required_location)+"," +  str(loop_size))
+        # print('shortest_path:' + str(current_location) +"," + str(required_location)+"," +  str(loop_size))
         # Calculate the forward distance
         if required_location >= current_location:
             forward_distance = required_location - current_location
