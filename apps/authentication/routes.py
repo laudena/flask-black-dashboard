@@ -134,7 +134,8 @@ def stop_clock_cmd():
 def calibrate_clock_cmd():
     if 'steps' in request.args:
         clock_model.calibrate_handle(int(request.args['steps']))
-    return redirect("/configure")
+        return request.args['steps'], 200
+    return "Could not calibrate. use /calibrate_handle?steps=123", 400
 
 @blueprint.route('/set_time_cmd', methods=['GET'])
 def set_time_cmd():

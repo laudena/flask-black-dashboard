@@ -17,7 +17,7 @@ seconds_coil_A_1_pin = 4
 seconds_coil_A_2_pin = 17
 seconds_coil_B_1_pin = 27
 seconds_coil_B_2_pin = 22
-seconds_steps_per_revolution = 509  # 63.68395*8
+seconds_steps_per_revolution = 615  # previously 63.68395*8
 
 
 class ClockModel:
