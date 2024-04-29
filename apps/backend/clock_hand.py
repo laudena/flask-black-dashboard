@@ -86,13 +86,12 @@ class ClockHand:
         self.reset_pins()
         self.persist_motor_position()
 
-    def calibrate_handle(self, flag_stop_calibration):
-        while 1:
-            if flag_stop_calibration:
-                break
-            delay = 1
-            step = 1
-            self.forward(int(delay) / 1000.0, int(step))
+    def calibrate_handle(self, steps):
+        delay = 1
+        if steps > 0:
+            self.forward(int(delay) / 1000.0, int(steps))
+        else:
+            self.backwards(int(delay) / 1000.0, -int(steps))
 
     def clock_handle(self, flag_stop_clock, flag_refresh_timeout):
         while 1:

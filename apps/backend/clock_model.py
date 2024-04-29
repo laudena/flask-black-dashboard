@@ -12,7 +12,7 @@ flag_seconds_refresh_timeout = 1.0
 TIME_ZONE = 'Australia/Victoria'
 
 # static variables
-TIMEOUT_FOR_CLOCK_HAND_THREADS_TO_DIE = 0.2  # seconds
+TIMEOUT_FOR_CLOCK_HAND_THREADS_TO_DIE = 3.0  # seconds
 seconds_coil_A_1_pin = 4
 seconds_coil_A_2_pin = 17
 seconds_coil_B_1_pin = 27
@@ -91,3 +91,6 @@ def wait_for_threads_to_die():
     flag_stop_clock = True
     time.sleep(TIMEOUT_FOR_CLOCK_HAND_THREADS_TO_DIE)
     flag_stop_clock = False
+
+def calibrate_handle(steps):
+    clock_model.get_clock_hand().calibrate_handle(steps)
