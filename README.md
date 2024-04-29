@@ -1,3 +1,31 @@
+# The Raspberry Clock 
+## A Mechanical Clock With a Web Interface
+
+In this project I used Flask Dashboard Black as a backbone to run the cog wheels of a mechanical clock, using Raspberry-Pi and a stepper motor.
+
+### The Clock
+<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/Clock.jpg" width="300">
+
+
+---
+
+### The Mechanism
+<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/ClockMechanism.jpg" width="300">
+
+
+
+### The Step Motor Setup
+<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/setup.jpg" width="300">
+<br/>
+<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/StepperMotor_cog_wheels.jpg" width="300">
+
+Want to see it in action? [Here's a VIDEO](https://youtu.be/lBk1q_Q5vkI)
+
+To setup the right time on the clock, use the clock's web interface to input the shown time. This clock knows the time, it's just not sure what time it displays.
+Once you tell it what is shown, it will quickly move the clock hands to the right position.
+
+
+
 # [Black Dashboard Flask](https://appseed.us/product/black-dashboard/flask/)
 
 Open-source **[Flask Dashboard](https://appseed.us/admin-dashboards/flask/)** crafted on top of a modern `Bootstrap` design. Designed for those who like bold elements and beautiful websites, **Black Dashboard** is ready to help you create stunning websites and web apps. **Black Dashboard** is built with over 50 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining.
