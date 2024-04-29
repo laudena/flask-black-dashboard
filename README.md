@@ -4,20 +4,20 @@
 In this project I used Flask Dashboard Black as a backbone to run the cog wheels of a mechanical clock, using Raspberry-Pi and a stepper motor.
 
 ### The Clock
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/Clock.jpg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/Clock.jpg" width="300">
 
 
 ---
 
 ### The Mechanism
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/ClockMechanism.jpg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/ClockMechanism.jpg" width="300">
 
 
 
 ### The Step Motor Setup
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/setup.jpg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/setup.png" width="300">
 <br/>
-<img src="https://github.com/laudena/flask-black-dashboard/raw/main/images/StepperMotor_cog_wheels.jpg" width="300">
+<img src="https://github.com/laudena/flask-black-dashboard/raw/master/images/StepperMotor_cog_wheels.jpg" width="300">
 
 Want to see it in action? [Here's a VIDEO](https://youtu.be/lBk1q_Q5vkI)
 
